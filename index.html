@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<!-- 2013年は滅びぬ―何度でも蘇るさ。 -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=0" />
+	<!-- ページタイトル, 概要 -->
+	<title>エターナル2013年</title>
+	<meta name="description" content="永遠に2013年が続いたときの今日の日付がわかるサイトです。今日も明日も2013年12月。" />
+	<!-- Open Graph -->
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="エターナル2013年" />
+	<meta property="og:title" content="エターナル2013年" />
+	<meta property="og:url" content="http://mg32.github.io/eternal2013/" />
+	<meta property="og:description" content="永遠に2013年が続いたときの今日の日付がわかるサイトです。" />
+	<!-- Twitter Cards -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="エターナル2013年" />
+	<meta name="twitter:url" content="http://mg32.github.io/eternal2013/">
+	<meta name="twitter:site" content="@mogesystem" />
+	<meta name="twitter:description" content="永遠に2013年が続いたときの今日の日付がわかるサイトです。" />
+	<!-- Stylesheet -->
+	<link rel="stylesheet" media="all"   href="eternal2013.css" />
+	<link rel="stylesheet" media="all"   href="mobile.css" />
+	<link rel="stylesheet" media="print" href="print.css" />
+	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript" src="eternal2013.js"></script>
+	<script type="text/javascript" src="mgsnow.js"></script>
+	<script>
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+		if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+		fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	</script>
+</head>
+<body>
+<center>
+	<div id="header">
+		<h1>エターナル<br>2013年</h1>
+	</div>
+	<div id="container">
+		<div id="disp">
+			<p>本日は</p>
+			<span id="dt"></span><br>
+			<span id="tm"></span><br>
+			<p><!-- うー -->です<!-- の --></p>
+		</div>
+		<!-- Javascriptで動的にツイートボタンが設置されます！！！！！！！！！！ -->
+		<!-- みんなでシェアしましょう！！！！！！！！！！ -->
+		<div id="twbtn"></div>
+	</div>
+	
+	<div class="seasontop" style="left: 0;"></div>
+	<div class="seasontop" style="right: 0;"></div>
+	<div class="season" style="left: 0;"><img class="seasonimg" /></div>
+	<div class="season" style="right: 0;"><img class="seasonimg" /></div>
+	<div id="snow"></div>
+</center>
+</body>
+</html>

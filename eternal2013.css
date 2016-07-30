@@ -1,0 +1,84 @@
+﻿
+body {
+	background-color: #000008; background-image: url('image/bg2.png'); 
+	background-size: 125%;
+	background-position: center center; background-repeat: no-repeat;
+	background-attachment: fixed;
+	overflow-y: scroll;
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: calc(120% + 4.236vw); color: white;
+	letter-spacing: 1em;
+	margin: 0; margin-right: -1em;
+}
+
+a {
+	color: white;
+}
+
+
+#header {
+	position: absolute;
+	left: 50%; margin-left: -40%; width: 80%;
+	top: 5vh;
+	z-index: 10;
+}
+
+#container {
+	position: absolute;
+	left: 50%; margin-left: -40%; width: 80%;
+	top: 50vh;  margin-top: -15vh;  height: 65vh;
+	z-index: 10;
+}
+
+#disp {
+	color: red;
+	text-shadow:
+		-0.05vw -0.05vw white, 0.05vw -0.05vw white,
+		-0.05vw  0.05vw white, 0.05vw  0.05vw white;
+}
+#disp p {
+	margin: 0;
+	font-size: calc(120% + 2.816vw);
+	letter-spacing: 1em; margin-right: -1em;
+}
+#dt {
+	font-size: calc(120% + 6.854vw); letter-spacing: normal;
+}
+#tm {
+	font-size: calc(120% + 4.236vw); letter-spacing: normal;
+}
+
+#contents {
+	font-size: calc(120% + 0.382vw); color: #CCCCCC;
+}
+
+#twbtn {
+	width: 67px; height: 20px;
+	padding: 20px;
+}
+
+
+.season {
+	position: fixed; top: 0;
+	width: 25%; z-index: 5;
+}
+.seasonimg {
+	width: 100%;
+}
+.seasontop {
+	display: block;
+	position: fixed; top: 0;
+	width: 25%; height: 100%;
+	cursor: pointer;
+	z-index: 11;
+}
+
+.particle {
+	display: block; position: fixed;
+	border-radius: 50%;
+	background-color: white; color: transparent;
+	box-shadow: 0 0 4px 1px white;
+}

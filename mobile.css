@@ -1,0 +1,8 @@
+﻿@media screen and (max-width: 640px) {
+	h1 {
+		letter-spacing: 0.5em; margin-right: -0.5em;
+	}
+	#disp {
+		text-shadow: none;
+	}
+}
