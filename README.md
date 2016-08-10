@@ -6,7 +6,9 @@
 
 
 ## ページ
-- [dummy.html](about:blank)
+- [index.html](https://mg32.github.io/eternal2013/index.html)
+- [old.html](https://mg32.github.io/eternal2013/old.html)
+- [pi.html](https://mg32.github.io/eternal2013/pi.html)
 
 
 ## メモ
