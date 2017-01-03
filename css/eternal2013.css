@@ -1,6 +1,6 @@
 ﻿
 body {
-	background-color: #000008; background-image: url('image/bg2.png'); 
+	background-color: #000008; background-image: url('../image/bg2.png'); 
 	background-size: 125%;
 	background-position: center center; background-repeat: no-repeat;
 	background-attachment: fixed;
