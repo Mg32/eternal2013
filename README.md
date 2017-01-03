@@ -6,9 +6,9 @@
 
 
 ## ページ
-- [index.html](https://mg32.github.io/eternal2013/index.html)
-- [old.html](https://mg32.github.io/eternal2013/old.html)
-- [pi.html](https://mg32.github.io/eternal2013/pi.html)
+- [エターナル2013年](https://mg32.github.io/eternal2013/index.html)
+- [過去のエターナル2013年の一覧](https://mg32.github.io/eternal2013/old.html)
+- [円周率1桁](https://mg32.github.io/eternal2013/pi.html)
 
 
 ## メモ
@@ -18,7 +18,3 @@ Githubで公開するにあたって自作の mgsnow.js というスクリプト
 また、以下のファイルは [花鳥風月](https://azukichi.net/season/) から取得したフリー素材イラストです。
 - images/natsu0.png ～ natsu4.png (連番)
 - images/xmas0.png, images/xmas1.png
-
-
-## 外部リンク
-- [エターナル2013年 Dropbox版](https://dl.dropboxusercontent.com/u/69466065/eternal2013/index.html)
