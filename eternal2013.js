@@ -57,7 +57,7 @@ new function() {
 
 	// 鐘の音を鳴らす
 	function season_playgong() {
-		var audio = new Audio("gong.ogg");
+		var audio = new Audio("audio/gong.ogg");
 		audio.play();
 	};
 
