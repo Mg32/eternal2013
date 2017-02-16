@@ -20,6 +20,7 @@
 	<meta name="twitter:site" content="@mogesystem" />
 	<meta name="twitter:description" content="永遠に2013年が続いたときの今日の日付がわかるサイトです。" />
 	<!-- Stylesheet -->
+	<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
 	<link rel="stylesheet" media="all"   href="css/eternal2013.css" />
 	<link rel="stylesheet" media="all"   href="css/mobile.css" />
 	<link rel="stylesheet" media="print" href="css/print.css" />
@@ -34,20 +35,21 @@
 	</script>
 </head>
 <body>
-<center>
 	<div id="header">
 		<h1>エターナル<br>2013年</h1>
 	</div>
 	<div id="container">
-		<div id="disp">
-			<p>本日は</p>
-			<span id="dt"></span><br>
-			<span id="tm"></span><br>
-			<p><!-- うー -->です<!-- の --></p>
+		<div class="text-outlined text-size-beta">
+			<p class="text-spaced">本日は</p>
+			<p id="dt" class="text-size-alpha"></p>
+			<p id="tm"></p>
+			<p class="text-spaced"><!-- うー -->です<!-- の --></p>
 		</div>
 		<!-- Javascriptで動的にツイートボタンが設置されます！！！！！！！！！！ -->
 		<!-- みんなでシェアしましょう！！！！！！！！！！ -->
-		<div id="twbtn"></div>
+		<div id="twbtn_wrap">
+			<div id="twbtn"></div>
+		</div>
 	</div>
 
 	<div class="seasontop" style="left: 0;"></div>
@@ -55,6 +57,5 @@
 	<div class="season" style="left: 0;"><img class="seasonimg" /></div>
 	<div class="season" style="right: 0;"><img class="seasonimg" /></div>
 	<div id="snow"></div>
-</center>
 </body>
 </html>
