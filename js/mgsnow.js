@@ -5,37 +5,48 @@
 var MgSnow = {};
 
 new function() {
-	var _count = 100;
+	var _width = 0;
+	var _height = 0;
+	var _count = 0;
 	var _pobj = [];
 	var _pd = [{}];
 
-	MgSnow._width = 0;
-	MgSnow._height = 0;
-
 	// 雪を降らせる
 	MgSnow.start = function() {
-		onresize(); $(window).resize = onresize;
+		onresize(); $(window).resize(onresize);
 
-		for (var i = 0; i < _count; i++) {
-			create(i);
-		}
 		move(); setInterval(move, 40);
 	};
 
 	// イベント: リサイズ
 	function onresize() {
-		MgSnow._width = $(window).width();
-		MgSnow._height = $(window).height();
+		_width = $(window).width();
+		_height = $(window).height();
+
+		var prev = _count;
+
+		// 画面サイズにあわせて雪の数を調整する
+		_count = Math.floor(_width * _height * 1e-4);
+
+		if (_count > prev) {
+			// 雪を増やす
+			for (var i = prev; i < _count; i++) { create(i); }
+		}
+		else if (_count < prev) {
+			// 雪を減らす
+			for (var i = _count - 1; i < prev; i++) { hide(i); }
+		}
 	};
 
-	// 雪パーティクル作成
+	// 雪: 作成
 	function create(id) {
 		var sz = Math.floor(Math.random() * 10 + 1);
 		var d = Math.floor(Math.random() * 8 + 1);
 		var r = Math.random() * Math.PI / 18;
 
 		var p = $("<div>").attr("class", "particle").css({
-			"z-index": d, width: sz + "px", height: sz + "px"
+			"display": "block", "z-index": d,
+			width: sz + "px", height: sz + "px"
 		});
 
 		_pobj[id] = p;
@@ -45,11 +56,16 @@ new function() {
 		$("#snow").append(p);
 	};
 
+	// 雪: 隠す
+	function hide(id) {
+		_pobj[id].css({"display": "none"});
+	}
+
 	// 雪: 移動
 	function move() {
 		for (var i = 0; i < _count; i++) {
 			fall(i);
-			if (_pd[i].py > MgSnow._height) {
+			if (_pd[i].py > _height) {
 				reset(i);
 			}
 		}
@@ -57,8 +73,8 @@ new function() {
 
 	// 雪: 位置初期化
 	function reset(id) {
-		_pd[id].px = Math.floor(Math.random() * (MgSnow._width + 40) - 20);
-		_pd[id].py = -Math.floor(Math.random() * MgSnow._height);
+		_pd[id].px = Math.floor(Math.random() * (_width + 40) - 20);
+		_pd[id].py = -Math.floor(Math.random() * _height);
 
 		_pobj[id].css({
 			left: _pd[id].px + "px", top: _pd[id].py + "px"
