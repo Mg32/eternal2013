@@ -9,6 +9,9 @@ new function() {
 	function get_realyear()  { return (new Date()).getFullYear(); }
 	function get_realmonth() { return (new Date()).getMonth() + 1; }
 	function get_realday()   { return (new Date()).getDate(); }
+	function get_realhour()   { return ("0" + (new Date()).getHours()).slice(-2); }
+	function get_realminute() { return ("0" + (new Date()).getMinutes()).slice(-2); }
+	function get_realsecond() { return ("0" + (new Date()).getSeconds()).slice(-2); }
 
 	function get_msec()  { return date_orig.getTime(); }
 	function get_year()  { return date_orig.getFullYear(); }
@@ -18,17 +21,6 @@ new function() {
 			return Math.floor(msec/1000/60/60/24) + 1;
 		};
 		return msec2day(get_realmsec() - get_msec());
-	}
-
-	function get_ymd() {
-		return get_year() + "/" + get_month() + "/" + get_day();
-	}
-	function get_hms() {
-		var date_now = new Date();
-		var hh = ("0" + date_now.getHours()).slice(-2);
-		var mm = ("0" + date_now.getMinutes()).slice(-2);
-		var ss = ("0" + date_now.getSeconds()).slice(-2);
-		return hh + ":" + mm + ":" + ss;
 	}
 
 	// Twitterボタンの更新
@@ -125,15 +117,23 @@ new function() {
 
 	// タイマのコールバック関数
 	function on_timer() {
-		var ymd = get_ymd();
-		var hms = get_hms();
+		var year   = get_year();
+		var month  = get_month();
+		var day    = get_day();
+		var hour   = get_realhour();
+		var minute = get_realminute();
+		var second = get_realsecond();
 
-		if ($("#dt").text() != ymd) {	// 日付が変わった
-			$("#dt").html(ymd);
+		if ($("#day").text() != day) {	// 日付が変わった
+			$("#year").html(year);
+			$("#month").html(month);
+			$("#day").html(day);
 			refresh();
 		}
 
-		$("#tm").html(hms);
+		$("#hour").html(hour);
+		$("#minute").html(minute);
+		$("#second").html(second);
 	};
 
 	// タイマを開始する

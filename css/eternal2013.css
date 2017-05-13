@@ -11,8 +11,8 @@ body {
 	background-position: center center; background-repeat: no-repeat;
 	background-attachment: fixed;
 	text-align: center;
-	font-family: 'Mplus 1p', sans-serif;
-	font-size: 1.2vw;
+	font-size: 1rem;
+	line-height: 1em;
 	color: #CCCCCC;
 	overflow-y: scroll;
 	/*background: linear-gradient(180deg, black 80%, red);
@@ -20,14 +20,15 @@ body {
 }
 
 h1 {
-	font-size: 5vw; line-height: 12vh;
+	font-size: calc(3vw + 3vh);
+	line-height: 1.2em;
 	font-weight: bold;
 	color: white;
-	letter-spacing: 1em; margin-right: -1em;
 }
 
 h2 {
-	font-size: 2.5vw; line-height: 12vh;
+	font-size: calc(1.8vw + 1.8vh);
+	line-height: 1.2em;
 	font-weight: bold;
 	color: red;
 }
@@ -53,21 +54,22 @@ hr {
 
 #header {
 	position: absolute;
-	top: 4vh;
+	top: 4vh; height: calc(2.2 * (3vw + 3vh));
 	left: 50%; margin-left: -40%; width: 80%;
 	z-index: 10;
 }
 
 #container {
 	position: absolute;
-	top: 32vh;
+	top: calc(2.2 * (3vw + 3vh) + 8vh);
 	left: 50%; margin-left: -40%; width: 80%;
 	z-index: 10;
 }
 
 #twbtn_wrap {
-	height: 8vh;
-	position: relative;
+	position: absolute;
+	top: 84vh; height: 16vh;
+    left: 50%; width: 80%; margin-left: -40%;
 }
 
 #twbtn {
@@ -80,6 +82,18 @@ hr {
 	margin: auto;
 }
 
+#year::after   { white-space: pre; content: '/'; }
+#month::after  { white-space: pre; content: '/'; }
+#day::after    { white-space: pre; content: ''; }
+#hour::after   { white-space: pre; content: ':'; }
+#minute::after { white-space: pre; content: ':'; }
+#second::after { white-space: pre; content: ''; }
+@media (max-aspect-ratio: 1/1) {
+    #year::after  { font-size: 0.5em; content: '年\A'; }
+    #month::after { font-size: 0.5em; content: '月\A'; }
+    #day::after   { font-size: 0.5em; content: '日'; }
+}
+
 .text-outlined {
 	color: red;
 	text-shadow:
@@ -88,21 +102,48 @@ hr {
 		-0.05vw  0.05vw rgba(255, 255, 255, 0.6),
 		 0.05vw  0.05vw rgba(255, 255, 255, 0.6);
 }
+@media (max-width: 960px) {
+	.text-outlined {
+		text-shadow:
+			-0.5px -0.5px rgba(255, 255, 255, 0.6),
+			 0.5px -0.5px rgba(255, 255, 255, 0.6),
+			-0.5px  0.5px rgba(255, 255, 255, 0.6),
+			 0.5px  0.5px rgba(255, 255, 255, 0.6);
+	}
+}
 
 .text-spaced {
 	letter-spacing: 1em; margin-right: -1em;
 }
 
-.text-size-alpha {
-	font-size: 8vw; line-height: 24vh;
+.text-align-left {
+	text-align: left;
 }
 
-.text-size-beta {
-	font-size: 4vw; line-height: 12vh;
+.paragraph {
+	margin: auto;
+	width: 80%;
 }
 
-.text-size-gamma {
-	font-size: 1.5vw; line-height: 4vh;
+.disp-small {
+    padding: 2vh;
+    font-size: calc(1vw + 1vh);
+    line-height: 1em;
+}
+.disp-normal {
+    padding: 2vh;
+    font-size: calc(1.8vw + 1.8vh);
+    line-height: 1em;
+}
+.disp-large {
+    padding: 2vh;
+    font-size: calc(3.5vw + 3.5vh);
+    line-height: 1em;
+}
+.disp-jumbo {
+    padding: 2vh;
+    font-size: calc(5vw + 5vh);
+    line-height: 1em;
 }
 
 
