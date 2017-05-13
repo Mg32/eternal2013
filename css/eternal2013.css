@@ -11,7 +11,7 @@ body {
 	background-position: center center; background-repeat: no-repeat;
 	background-attachment: fixed;
 	text-align: center;
-	font-family: sans-serif;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
 	font-size: 1rem;
 	line-height: 1em;
 	color: #CCCCCC;
