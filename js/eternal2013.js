@@ -2,23 +2,23 @@
 // エターナル2013年
 // eternal2013.js
 
-new function() {
-	var date_orig = new Date(2013, 12-1, 1);	// 初日
+new function () {
+	var date_orig = new Date(2013, 12 - 1, 1);	// 初日
 
-	function get_realmsec()  { return (new Date()).getTime(); }
-	function get_realyear()  { return (new Date()).getFullYear(); }
+	function get_realmsec() { return (new Date()).getTime(); }
+	function get_realyear() { return (new Date()).getFullYear(); }
 	function get_realmonth() { return (new Date()).getMonth() + 1; }
-	function get_realday()   { return (new Date()).getDate(); }
-	function get_realhour()   { return ("0" + (new Date()).getHours()).slice(-2); }
+	function get_realday() { return (new Date()).getDate(); }
+	function get_realhour() { return ("0" + (new Date()).getHours()).slice(-2); }
 	function get_realminute() { return ("0" + (new Date()).getMinutes()).slice(-2); }
 	function get_realsecond() { return ("0" + (new Date()).getSeconds()).slice(-2); }
 
-	function get_msec()  { return date_orig.getTime(); }
-	function get_year()  { return date_orig.getFullYear(); }
+	function get_msec() { return date_orig.getTime(); }
+	function get_year() { return date_orig.getFullYear(); }
 	function get_month() { return date_orig.getMonth() + 1; }
 	function get_day() {
 		var msec2day = function (msec) {
-			return Math.floor(msec/1000/60/60/24) + 1;
+			return Math.floor(msec / 1000 / 60 / 60 / 24) + 1;
 		};
 		return msec2day(get_realmsec() - get_msec());
 	}
@@ -44,7 +44,7 @@ new function() {
 	var season_opacity = 1.0;
 	function season_showhide() {
 		season_opacity = 1.0 - season_opacity;
-		$(".season").animate({opacity: season_opacity}, 500);
+		$(".season").animate({ opacity: season_opacity }, 500);
 	};
 
 	// 鐘の音を鳴らす
@@ -59,27 +59,27 @@ new function() {
 		var onclick = null;
 
 		switch (real_m) {
-		case 7:
-		case 8:
-			// 7～8月は夏仕様
-			filename = "natsu" + Math.floor(Math.random()*5) + ".png";
-			onclick = season_showhide;
-			break;
-
-		case 12:
-			if (real_d < 30) {					// 12月はクリスマス仕様
-				filename = "xmas" + Math.round(Math.random()) + ".png";
+			case 7:
+			case 8:
+				// 7～8月は夏仕様
+				filename = "natsu" + Math.floor(Math.random() * 5) + ".png";
 				onclick = season_showhide;
-			} else {							// 12/30, 12/31は大晦日仕様
-				filename = "gong.png";
-				onclick = season_playgong;
-			}
-			break;
+				break;
+
+			case 12:
+				if (real_d < 30) {					// 12月はクリスマス仕様
+					filename = "xmas" + Math.round(Math.random()) + ".png";
+					onclick = season_showhide;
+				} else {							// 12/30, 12/31は大晦日仕様
+					filename = "gong.png";
+					onclick = season_playgong;
+				}
+				break;
 		}
 
 		// 画像ファイルを設定
 		if (filename != "") {
-			$(".seasonimg").each(function(i, elem) {
+			$(".seasonimg").each(function (i, elem) {
 				$(elem).attr("src", "./image/" + filename);
 			});
 		}
@@ -94,11 +94,11 @@ new function() {
 	// 雪表示の更新
 	function refresh_snow(y, m, d, real_y, real_m, real_d) {
 		switch (real_m) {
-		case 12:
-		case 1:
-		case 2:
-			MgSnow.start();
-			break;
+			case 12:
+			case 1:
+			case 2:
+				MgSnow.start();
+				break;
 		}
 	};
 
@@ -110,17 +110,17 @@ new function() {
 		var real_y = get_realyear();
 		var real_m = get_realmonth();
 		var real_d = get_realday();
-		refresh_tweetbutton  (y, m, d, real_y, real_m, real_d);
+		refresh_tweetbutton(y, m, d, real_y, real_m, real_d);
 		refresh_season_images(y, m, d, real_y, real_m, real_d);
-		refresh_snow         (y, m, d, real_y, real_m, real_d);
+		refresh_snow(y, m, d, real_y, real_m, real_d);
 	};
 
 	// タイマのコールバック関数
 	function on_timer() {
-		var year   = get_year();
-		var month  = get_month();
-		var day    = get_day();
-		var hour   = get_realhour();
+		var year = get_year();
+		var month = get_month();
+		var day = get_day();
+		var hour = get_realhour();
 		var minute = get_realminute();
 		var second = get_realsecond();
 
@@ -142,7 +142,7 @@ new function() {
 	}
 
 	// エントリポイント
-	$(function() {
+	$(function () {
 		start_timer();
 	});
 };

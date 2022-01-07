@@ -4,7 +4,7 @@
 
 var MgSnow = {};
 
-new function() {
+new function () {
 	var _width = 0;
 	var _height = 0;
 	var _count = 0;
@@ -12,7 +12,7 @@ new function() {
 	var _pd = [{}];
 
 	// 雪を降らせる
-	MgSnow.start = function() {
+	MgSnow.start = function () {
 		onresize(); $(window).resize(onresize);
 
 		move(); setInterval(move, 40);
@@ -50,7 +50,7 @@ new function() {
 		});
 
 		_pobj[id] = p;
-		_pd[id] = {px: 0, py: 0, size: sz, dist: d, rad: r, phase: 0};
+		_pd[id] = { px: 0, py: 0, size: sz, dist: d, rad: r, phase: 0 };
 		reset(id);
 
 		$("#snow").append(p);
@@ -58,7 +58,7 @@ new function() {
 
 	// 雪: 隠す
 	function hide(id) {
-		_pobj[id].css({"display": "none"});
+		_pobj[id].css({ "display": "none" });
 	}
 
 	// 雪: 移動
