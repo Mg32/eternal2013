@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <!-- 2013年は滅びぬ―何度でも蘇るさ。 -->
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,user-scalable=0" />
@@ -20,18 +21,23 @@
 	<meta name="twitter:site" content="@mogesystem" />
 	<meta name="twitter:description" content="永遠に2013年が続いたときの今日の日付がわかるサイトです。" />
 	<!-- Stylesheet -->
-	<link rel="stylesheet" media="all"   href="css/eternal2013.css" />
+	<link rel="stylesheet" media="all" href="css/eternal2013.css" />
 	<link rel="stylesheet" media="print" href="css/print.css" />
 	<!-- Scripts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script type="text/javascript" src="js/eternal2013.js"></script>
 	<script type="text/javascript" src="js/mgsnow.js"></script>
 	<script>
-		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-		if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
-		fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		!function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+			if (!d.getElementById(id)) {
+				js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js';
+				fjs.parentNode.insertBefore(js, fjs);
+			}
+		}(document, 'script', 'twitter-wjs');
 	</script>
 </head>
+
 <body>
 	<div id="header">
 		<h1 class="text-spaced">エターナル<br>2013年</h1>
@@ -39,19 +45,25 @@
 	<div id="container">
 		<div class="text-outlined">
 			<div class="disp-normal text-spaced">本日は</div>
-            <div class="disp-jumbo">
+			<div class="disp-jumbo">
 				<span id="year"></span><span id="month"></span><span id="day"></span>
 			</div>
-            <div class="disp-large">
+			<div class="disp-large">
 				<span id="hour"></span><span id="minute"></span><span id="second"></span>
 			</div>
-			<div class="disp-normal text-spaced"><!-- うー -->です<!-- の --></div>
+			<div class="disp-normal text-spaced">
+				<!-- うー -->です
+				<!-- の -->
+			</div>
 		</div>
 	</div>
 	<!-- Javascriptで動的にツイートボタンが設置されます！！！！！！！！！！ -->
 	<!-- みんなでシェアしましょう！！！！！！！！！！ -->
 	<div id="twbtn_wrap">
-		<div id="twbtn"></div>
+		<div id="twbtn">
+			<a href="https://twitter.com/share" class="twitter-share-button"
+				data-url="https://mg32.github.io/eternal2013/" data-text="エターナル2013年" data-lang="ja">ツイート</a>
+		</div>
 	</div>
 
 	<div class="seasontop" style="left: 0;"></div>
@@ -60,4 +72,5 @@
 	<div class="season" style="right: 0;"><img class="seasonimg" /></div>
 	<div id="snow"></div>
 </body>
+
 </html>
