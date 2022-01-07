@@ -39,9 +39,15 @@ new function () {
 	};
 
 	// 鐘の音を鳴らす
+	var gong;
 	function season_playgong() {
-		var audio = new Audio("audio/gong.ogg");
-		audio.play();
+		if (!gong) {
+			gong = new Audio("audio/gong.ogg");
+		}
+		else {
+			gong.currentTime = 0;
+		}
+		gong.play();
 	};
 
 	// 季節画像の更新
