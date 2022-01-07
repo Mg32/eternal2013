@@ -17,24 +17,15 @@ new function () {
 	function get_year() { return date_orig.getFullYear(); }
 	function get_month() { return date_orig.getMonth() + 1; }
 	function get_day() {
-		var msec2day = function (msec) {
-			return Math.floor(msec / 1000 / 60 / 60 / 24) + 1;
-		};
-		return msec2day(get_realmsec() - get_msec());
+		var msec = get_realmsec() - get_msec();
+		return Math.floor(msec / 1000 / 60 / 60 / 24) + 1;
 	}
 
 	// Twitterボタンの更新
 	function refresh_tweetbutton(y, m, d, real_y, real_m, real_d) {
-		var text =
-			"エターナル" + y + "年\n" +
-			"本日は " + y + "年" + m + "月" + d + "日" + " です。\n";
-		var html =
-			"<a href=\"https://twitter.com/share\" " +
-			"class=\"twitter-share-button\"{count} " +
-			"data-url=\"https://mg32.github.io/eternal2013/\" " +
-			"data-text=\"" + text + "\"data-lang=\"ja\">ツイート</a>\n";
+		var text = `エターナル${y}年\n本日は ${y}年${m}月${d}日 です。\n`;
 
-		$("#twbtn").html(html);
+		$(".twitter-share-button").attr("data-text", text);
 		if (window.twttr && window.twttr.widgets && window.twttr.widgets.load) {
 			window.twttr.widgets.load();
 		}
@@ -55,8 +46,8 @@ new function () {
 
 	// 季節画像の更新
 	function refresh_season_images(y, m, d, real_y, real_m, real_d) {
-		var filename = "";
-		var onclick = null;
+		var filename;
+		var onclick;
 
 		switch (real_m) {
 			case 7:
@@ -77,16 +68,17 @@ new function () {
 				break;
 		}
 
+		// 画像ファイルが指定されていなければ非表示
+		$(".seasontop").css("visibility", filename ? "visible" : "hidden");
+
 		// 画像ファイルを設定
-		if (filename != "") {
-			$(".seasonimg").each(function (i, elem) {
-				$(elem).attr("src", "./image/" + filename);
-			});
+		if (filename) {
+			$(".seasonimg").attr("src", "./image/" + filename);
 		}
 
 		// 画像クリック時のイベントを設定
 		$(".seasontop").unbind();
-		if (onclick != null) {
+		if (onclick) {
 			$(".seasontop").click(onclick);
 		}
 	};
@@ -136,13 +128,16 @@ new function () {
 		$("#second").html(second);
 	};
 
-	// タイマを開始する
-	function start_timer() {
-		on_timer(); setInterval(on_timer, 1000);
+	function call_timer() {
+		on_timer();
+
+		// ミリ秒精度で1秒ごとに繰り返す
+		var wait_msec = 1000 - get_realmsec();
+		setTimeout(call_timer, wait_msec);
 	}
 
 	// エントリポイント
 	$(function () {
-		start_timer();
+		call_timer();
 	});
 };
