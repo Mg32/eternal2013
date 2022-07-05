@@ -5,19 +5,20 @@
 new function () {
 	var date_orig = new Date(2013, 12 - 1, 1);	// 初日
 
-	function get_realmsec() { return (new Date()).getTime(); }
+	function get_realtime_ms() { return (new Date()).getTime(); }
 	function get_realyear() { return (new Date()).getFullYear(); }
 	function get_realmonth() { return (new Date()).getMonth() + 1; }
 	function get_realday() { return (new Date()).getDate(); }
 	function get_realhour() { return ("0" + (new Date()).getHours()).slice(-2); }
 	function get_realminute() { return ("0" + (new Date()).getMinutes()).slice(-2); }
 	function get_realsecond() { return ("0" + (new Date()).getSeconds()).slice(-2); }
+	function get_wait_msec() { return 1000 - (new Date()).getMilliseconds(); }
 
-	function get_msec() { return date_orig.getTime(); }
+	function get_time_ms() { return date_orig.getTime(); }
 	function get_year() { return date_orig.getFullYear(); }
 	function get_month() { return date_orig.getMonth() + 1; }
 	function get_day() {
-		var msec = get_realmsec() - get_msec();
+		var msec = get_realtime_ms() - get_time_ms();
 		return Math.floor(msec / 1000 / 60 / 60 / 24) + 1;
 	}
 
@@ -138,8 +139,7 @@ new function () {
 		on_timer();
 
 		// ミリ秒精度で1秒ごとに繰り返す
-		var wait_msec = 1000 - get_realmsec();
-		setTimeout(call_timer, wait_msec);
+		setTimeout(call_timer, get_wait_msec());
 	}
 
 	// エントリポイント
