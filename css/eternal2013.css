@@ -1,3 +1,7 @@
+@font-face {
+	font-family: 'Open Sans';
+	src: url('https://fonts.cdnfonts.com/s/14884/OpenSans-SemiBold.woff') format('woff');
+}
 
 * {
 	margin: 0; padding: 0;
@@ -20,6 +24,14 @@ body {
 	background-size: 4vh 4vh;*/
 }
 
+#canvas-halo {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+}
+
 h1 {
 	font-size: calc(3vw + 3vh);
 	line-height: 1.2em;
@@ -31,7 +43,7 @@ h2 {
 	font-size: calc(1.8vw + 1.8vh);
 	line-height: 1.2em;
 	font-weight: bold;
-	color: red;
+	color: #FF3333;
 }
 
 a {
@@ -96,7 +108,7 @@ hr {
 }
 
 .text-outlined {
-	color: red;
+	color: #FF3333;
 	text-shadow:
 		-0.05vw -0.05vw rgba(255, 255, 255, 0.6),
 		 0.05vw -0.05vw rgba(255, 255, 255, 0.6),
@@ -145,6 +157,9 @@ hr {
     padding: 2vh;
     font-size: calc(5vw + 5vh);
     line-height: 1em;
+}
+.number {
+	font-family: "Open Sans";
 }
 
 
